@@ -24,3 +24,8 @@ div#memory_board > div{
 	text-align:center;
 }
 
+.level {
+  height: 10rem;
+  width: 10rem;
+  font-size: 7rem;
+}
