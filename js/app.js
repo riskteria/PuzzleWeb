@@ -5,6 +5,12 @@ var memory_array = ['A','A','B','B','C','C','D','D'];
 var memory_values = [];
 var memory_tile_ids = [];
 var tiles_flipped = 0;
+var tema = '';
+$('#tema').on('change', function() {
+  tema = this.value;
+  alert( tema ); // or $(this).val()
+});
+
 Array.prototype.memory_tile_shuffle = function(){
     var i = this.length, j, temp;
     while(--i > 0){
@@ -19,13 +25,13 @@ function newBoard(){
 	var output = '';
     memory_array.memory_tile_shuffle();
 	for(var i = 0; i < memory_array.length; i++){
-		output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
+		output += '<div class="small-4 columns" id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
 	}
 	document.getElementById('memory_board').innerHTML = output;
 }
 function memoryFlipTile(tile,val){
 	if(tile.innerHTML == "" && memory_values.length < 2){
-		tile.style.background = 'url(pic/'+val+'.jpg)';
+		tile.style.background = 'url(pic/'+tema+'/'+val+'.jpg)';
 		tile.innerHTML = '';
 		if(memory_values.length == 0){
 			memory_values.push(val);
@@ -40,7 +46,7 @@ function memoryFlipTile(tile,val){
             	memory_tile_ids = [];
 				// Check to see if the whole board is cleared
 				if(tiles_flipped == memory_array.length){
-					alert("Board cleared... generating new board");
+					alert("Selamat, kamu naik ke level selanjutnya");
 					document.getElementById('memory_board').innerHTML = "";
 					newBoard();
 				}
@@ -49,9 +55,9 @@ function memoryFlipTile(tile,val){
 				    // Flip the 2 tiles back over
 				    var tile_1 = document.getElementById(memory_tile_ids[0]);
 				    var tile_2 = document.getElementById(memory_tile_ids[1]);
-				    tile_1.style.background = 'url(tile_bg.jpg) no-repeat';
+				    tile_1.style.background = '#607d8b';
             	    tile_1.innerHTML = "";
-				    tile_2.style.background = 'url(tile_bg.jpg) no-repeat';
+				    tile_2.style.background = '#607d8b';
             	    tile_2.innerHTML = "";
 				    // Clear both arrays
 				    memory_values = [];

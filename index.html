@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Puzzle !!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
   <link rel="stylesheet" href="css/foundation.min.css">
   <link rel="stylesheet" href="css/color-scheme.css">
   <link rel="stylesheet" href="css/app.css">
@@ -51,13 +51,13 @@
 		      <div class="row">
 		          <div class="small-8 columns small-centered"  data-role="main" class="ui-content">
 			          <form action="#" class="form">
-			            <select id="contactDropdown">
+			            <select id="tema">
 			              <option DISABLED>Silahkan Pilih Tema</option>
-			              <option>Bleach</option>
-			              <option>Doraemon</option>
-			              <option>Gintama</option>
-			              <option>Naruto</option>
-			              <option>One Piece</option>
+			              <option value="bleach">Bleach</option>
+			              <option value="doraemon">Doraemon</option>
+			              <option value="gintama">Gintama</option>
+			              <option value="naruto">Naruto</option>
+			              <option value="onepiece">One Piece</option>
 			            </select>
 			          </form>
 			        </div>
@@ -65,12 +65,14 @@
       	</div>
 
       	<div class="large-12" data-role="page" id="page-2">
-				  <div data-role="header">
-				    <h1>Welcome To My Homepage</h1>
-				  </div>
 
-				   <div data-role="main" class="ui-content" id="memory_board">
-				    <p>Click on the link to go back. <b>Note</b>: fade is default.</p>
+				  <div class="top-bar-section" data-role="header">
+		        <h3 class="text-center mdc-text-blue-grey-700">
+		          <a href="#page-1" class="title"><img src="images/logo.png" alt="Logo"></a>Solve the Puzzle
+	          </h3>
+		      </div>
+
+			    <div data-role="main" class="ui-content large-12" id="memory_board">
 				  </div>
 
 				  <div data-role="footer">
