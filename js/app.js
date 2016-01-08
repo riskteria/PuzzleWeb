@@ -1,14 +1,16 @@
 
 // Scripted By Adam Khoury in connection with the following video tutorial:
 // http://www.youtube.com/watch?v=c_ohDPWmsM0
+var level = 1;
+
 var memory_array = ['A','A','B','B','C','C','D','D'];
+
 var memory_values = [];
 var memory_tile_ids = [];
 var tiles_flipped = 0;
 var tema = '';
 $('#tema').on('change', function() {
-  tema = this.value;
-  alert( tema ); // or $(this).val()
+  tema = this.value; // or $(this).val()
 });
 
 Array.prototype.memory_tile_shuffle = function(){
@@ -21,13 +23,22 @@ Array.prototype.memory_tile_shuffle = function(){
     }
 }
 function newBoard(){
+
+
+	if(level == 2)
+		memory_array = ['A','A','B','B','C','C','D','D','E','E','F','F'];
+	else if(level == 3)
+		memory_array = ['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','H'];
+	else if(level == 4)
+		memory_array = ['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','H','I','I','J','J'];
 	tiles_flipped = 0;
 	var output = '';
+
     memory_array.memory_tile_shuffle();
 	for(var i = 0; i < memory_array.length; i++){
 		output += '<div class="small-4 columns" id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
 	}
-	document.getElementById('memory_board').innerHTML = output;
+	document.getElementById('memory_board'+level).innerHTML = output;
 }
 function memoryFlipTile(tile,val){
 	if(tile.innerHTML == "" && memory_values.length < 2){
@@ -46,9 +57,16 @@ function memoryFlipTile(tile,val){
             	memory_tile_ids = [];
 				// Check to see if the whole board is cleared
 				if(tiles_flipped == memory_array.length){
-					alert("Selamat, kamu naik ke level selanjutnya");
-					document.getElementById('memory_board').innerHTML = "";
-					newBoard();
+					$('#con').text('Selamat, kamu berhasil');
+					$('.next.hide').toggleClass('hide');
+					$('.next').on('click', function(){
+						$('.next').addClass('hide');
+						$('#memory_board'+level).innerHTML = "";
+						newBoard();
+						$('#con').text = "";
+						level++;
+						newBoard();
+					});
 				}
 			} else {
 				function flip2Back(){

@@ -10,17 +10,17 @@ body {
 	overflow: hidden;
 	font-family: Quicksand-Regular;
 }
-#memory_board{
+.mmb {
 	background:rgba(0,0,255,0.5);
 	padding: 1rem;
 	width: 50%;
 	margin:0px auto;
 }
-div#memory_board > div{
+.mmb > div{
 	background: #607d8b;
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	background-position: center;
+	background-size: 100% 100% !important;
+	background-repeat: no-repeat !important;
+	background-position: center !important;
 	width:7rem;
 	height:7rem;
 	float:left;
@@ -71,4 +71,3 @@ div#memory_board > div{
 .disabled:focus {
 	background-color: #546e7a !important;
 }
-
