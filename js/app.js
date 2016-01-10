@@ -22,6 +22,7 @@ Array.prototype.memory_tile_shuffle = function(){
         this[i] = temp;
     }
 }
+
 function newBoard(){
 
 
@@ -40,6 +41,7 @@ function newBoard(){
 	}
 	document.getElementById('memory_board'+level).innerHTML = output;
 }
+
 function memoryFlipTile(tile,val){
 	if(tile.innerHTML == "" && memory_values.length < 2){
 		tile.style.background = 'url(pic/'+tema+'/'+val+'.jpg)';
